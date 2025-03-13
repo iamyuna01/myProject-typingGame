@@ -14,7 +14,7 @@ const getRandomWord = () => {
         shuffleArray[i] = shuffleArray[rand];
         shuffleArray[rand] = tmpStorage;
     }
-    return shuffleArray;
+    return shuffleArray[0];
 }
 
 export { getRandomWord, wordCount };

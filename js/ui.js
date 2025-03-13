@@ -8,9 +8,6 @@ const retryButton = document.getElementById('retryBtn');
 
 function updateWord(word){
     wordDisplay.innerHTML = "";
-    if (Array.isArray(word)) {
-        word = word.join("");
-    }
     word.split("").forEach((char, i) => {
         const span = document.createElement('span');
         span.innerHTML = char;
