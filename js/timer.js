@@ -1,8 +1,10 @@
-let time = 120;
+import { endGame } from './main.js';
+
+let time = 5;
 let timer;
 
 function startTimer(updateCallback, endCallback){
-    time = 120;
+    time = 5;
     updateCallback(formatTime(time));
 
     timer = setInterval(() => {
@@ -11,6 +13,7 @@ function startTimer(updateCallback, endCallback){
         if(time <= 0){
             clearInterval(timer);
             endCallback();
+            endGame();
         }
     }, 1000);
 }

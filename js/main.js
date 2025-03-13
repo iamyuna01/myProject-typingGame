@@ -43,13 +43,20 @@ document.getElementById('input').addEventListener("input", function() {
     }
 });
 
+function endGame() {
+    updateWord("Finish! Well Done!");
+    enableInput();
+    setRetryButtonState(true);
+}
+
 //시작
 document.addEventListener('DOMContentLoaded', () => {
     startGame();
 })
 
-//re try
+//retry
 document.getElementById('retryBtn').addEventListener('click', () => {
     startGame();
 });
 
+export{ endGame };
