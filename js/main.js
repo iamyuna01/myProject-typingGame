@@ -1,7 +1,7 @@
 import { getRandomWord, wordCount } from './word.js';
 import{ updateWord, updateSuccessCount, updateTime, updateRemainingCount, enableInput, disableInput, resetInput, setRetryButtonState, errorWord, inputField } from './ui.js';
 import{ startTimer, stopTimer } from './timer.js';
-import { increaseCount, getSuccessCount, } from './successCount.js';
+import { getSuccessCount, } from './successCount.js';
 
 let  word;
 let currentWord;
@@ -35,7 +35,6 @@ function setNewWord(){
 document.getElementById('input').addEventListener("input", function() {
     errorWord(currentWord);
     if(this.value === currentWord){
-        increaseCount();
         updateSuccessCount(getSuccessCount());
         resetInput();
         currentIndex++;

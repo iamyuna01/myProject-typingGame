@@ -1,15 +1,10 @@
 let successCount = 0;
 
-
-function increaseCount(){
-    score++;
-}
-
 function getSuccessCount(){
+    successCount++;
     return successCount;
 }
 
 export {
-    increaseCount,
     getSuccessCount,
 }

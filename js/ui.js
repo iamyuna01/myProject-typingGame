@@ -37,6 +37,7 @@ function enableInput(){
 
 function disableInput(){
     inputField.disabled = true;
+    inputField.style.opacity = '0.6'; 
 }
 
 function resetInput(){
