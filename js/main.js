@@ -1,7 +1,7 @@
-import { getRandomWord } from './word.js';
-import{ updateWord, updateSuccessCount, updateTime, updateRemainingCount, enableInput, disableInput, resetInput, setRetryButtonState, errorWord } from './ui.js';
+import { getRandomWord, wordCount } from './word.js';
+import{ updateWord, updateSuccessCount, updateTime, updateRemainingCount, enableInput, disableInput, resetInput, setRetryButtonState, errorWord, } from './ui.js';
 import{ startTimer, stopTimer } from './timer.js';
-import { initScore, increaseCount, getSuccessCount, getRemainingCount } from './successCount.js';
+import { increaseCount, getSuccessCount, } from './successCount.js';
 
 let  word;
 let currentWord;
@@ -9,12 +9,11 @@ let currentIndex = 0;
 
 //게임 시작
 function startGame(){
-    word = getRemainingCount();
-    initScore(word.length);
+    word = wordCount;
+    updateRemainingCount(word);
 
     currentIndex = 0;
     updateSuccessCount(0); //성공한 상수
-    updateRemainingCount(word.length);
     enableInput();
     resetInput();
     setNewWord();
@@ -24,7 +23,7 @@ function startGame(){
 }
 
 function setNewWord(){
-    if(currentIndex >= word.length){
+    if(currentIndex >= word){
         endGame();
         return;
     }
@@ -38,7 +37,6 @@ document.getElementById('input').addEventListener("input", function() {
     if(this.value === currentWord){
         increaseCount();
         updateSuccessCount(getSuccessCount());
-        updateRemainingCount(getRemainingCount());
         resetInput();
         currentIndex++;
         setNewWord();

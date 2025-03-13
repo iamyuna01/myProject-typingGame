@@ -4,6 +4,8 @@ const words = [
     "kiwi", "papaya", "coconut", "avocado", "pear", "plum", "fig", "date"
 ]
 
+const wordCount = words.length - 1;
+
 const getRandomWord = () => {
     const shuffleArray = [...words];
     for (let i = shuffleArray.length - 1; i >= 0; i--){
@@ -15,4 +17,4 @@ const getRandomWord = () => {
     return shuffleArray;
 }
 
-export { getRandomWord };
+export { getRandomWord, wordCount };
