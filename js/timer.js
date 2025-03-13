@@ -1,10 +1,10 @@
 import { endGame } from './main.js';
 
-let time = 5;
+let time = 120;
 let timer;
 
 function startTimer(updateCallback, endCallback){
-    time = 5;
+    time = 120;
     updateCallback(formatTime(time));
 
     timer = setInterval(() => {

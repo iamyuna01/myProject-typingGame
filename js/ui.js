@@ -1,3 +1,5 @@
+import {currentWord} from './main.js';
+
 const wordDisplay = document.getElementById('word');
 const inputField = document.getElementById('input');
 const SuccessDisplay = document.getElementById('successCount');
@@ -48,15 +50,20 @@ function setRetryButtonState(enabled){
 
 function errorWord(word){
     let input = inputField.value.split("");
-    word.split("").forEach((char, i) => {
-        let span = document.getElementById(`char-${i}`);
-        if(!span) return;
-        if(input[i] === undefined || input[i] === char){
-            span.style.color = 'black';
+    let wordArr = word.split("");
+    let currentIndex = 0;
+
+    while(currentIndex < wordArr.length) { 
+        let span = document.getElementById(`char-${currentIndex}`);
+        if (!span) return;
+
+        if (input[currentIndex] !== wordArr[currentIndex]) {
+            span.style.color = 'white';
         } else {
-            span.style.color = 'red';
+            span.style.color = 'yellow';
         }
-    });
+        currentIndex++;
+    }
 }
 
 export{
@@ -68,5 +75,6 @@ export{
     disableInput,
     resetInput,
     setRetryButtonState,
-    errorWord
+    errorWord,
+    inputField,
 }

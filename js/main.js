@@ -1,5 +1,5 @@
 import { getRandomWord, wordCount } from './word.js';
-import{ updateWord, updateSuccessCount, updateTime, updateRemainingCount, enableInput, disableInput, resetInput, setRetryButtonState, errorWord, } from './ui.js';
+import{ updateWord, updateSuccessCount, updateTime, updateRemainingCount, enableInput, disableInput, resetInput, setRetryButtonState, errorWord, inputField } from './ui.js';
 import{ startTimer, stopTimer } from './timer.js';
 import { increaseCount, getSuccessCount, } from './successCount.js';
 
@@ -33,7 +33,7 @@ function setNewWord(){
 
 //사용자의 입력을 확인
 document.getElementById('input').addEventListener("input", function() {
-    highlightTyping(currentIndex);
+    errorWord(currentWord);
     if(this.value === currentWord){
         increaseCount();
         updateSuccessCount(getSuccessCount());
@@ -46,6 +46,8 @@ document.getElementById('input').addEventListener("input", function() {
 function endGame() {
     updateWord("Finish! Well Done!");
     enableInput();
+    disableInput();
+    stopTimer();
     setRetryButtonState(true);
 }
 
@@ -59,4 +61,4 @@ document.getElementById('retryBtn').addEventListener('click', () => {
     startGame();
 });
 
-export{ endGame };
+export{ endGame,currentWord };
