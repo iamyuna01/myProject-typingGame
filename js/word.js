@@ -5,16 +5,26 @@ const words = [
 ]
 
 const wordCount = words.length - 1;
+let currentIndex = 0;
+let shuffledWords = [];
+
+const shuffleWords = () => {
+    shuffledWords = [...words];
+    for (let i = shuffledWords.length - 1; i > 0; i--) {
+        let rand = Math.floor(Math.random() * (i + 1));
+        [shuffledWords[i], shuffledWords[rand]] = [shuffledWords[rand], shuffledWords[i]];
+    }
+    currentIndex = 0;
+};
 
 const getRandomWord = () => {
-    const shuffleArray = [...words];
-    for (let i = shuffleArray.length - 1; i >= 0; i--){
-        let rand = Math.floor(Math.random() * (i + 1));
-        let tmpStorage = shuffleArray[i];
-        shuffleArray[i] = shuffleArray[rand];
-        shuffleArray[rand] = tmpStorage;
+    if (currentIndex < shuffledWords.length) {
+        const word = shuffledWords[currentIndex];
+        currentIndex++;
+        return word;
     }
-    return shuffleArray[0];
-}
+    shuffleWords();
+    return getRandomWord(); 
+};
 
 export { getRandomWord, wordCount };
