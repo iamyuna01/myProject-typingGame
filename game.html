@@ -37,10 +37,18 @@
             <button type="button" class="secountBox__again" id="retryBtn">Try again</button>
         </div>
     </main>
+    <script type="module" src="./js/audio.js"></script>
     <script type="module" src="./js/word.js"></script>
     <script type="module" src="./js/ui.js"></script>
     <script type="module" src="./js/timer.js"></script>
     <script type="module" src="./js/successCount.js"></script>
     <script type="module" src="./js/main.js"></script>
+    <script>
+        const audio = new Audio('sound.mp3');
+        audio.loop = true; 
+        audio.muted = false;
+        audio.play();
+        console.log('musicstart');
+    </script>
 </body>
 </html>
